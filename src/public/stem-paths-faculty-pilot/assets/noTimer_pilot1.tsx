@@ -1,10 +1,5 @@
 import { useState, useEffect } from 'react';
-import {
-  Button,
-  Box,
-  Modal,
-  Checkbox,
-} from '@mantine/core';
+import { Button, Box, Modal, Checkbox } from '@mantine/core';
 import ReactMarkdown from 'react-markdown';
 import { StimulusParams } from '../../../store/types';
 
@@ -12,12 +7,11 @@ interface QuestionnaireParams {
   markdownText: string;
 }
 
-const [modalOpened, setModalOpened] = useState(false);
-
-function noTimer_pilot1({ setAnswer }: StimulusParams<QuestionnaireParams>) {
+function TimedQuestionnaire({ setAnswer}: StimulusParams<QuestionnaireParams>) {
   const [showQuestionnaire, setShowQuestionnaire] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string[]>([]);
   const [questionSubmitted, setQuestionSubmitted] = useState(false);
+  const [modalOpened, setModalOpened] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -54,9 +48,9 @@ function noTimer_pilot1({ setAnswer }: StimulusParams<QuestionnaireParams>) {
         centered
       >
         <Box>
-          <ReactMarkdown>
-            Please identify the relevant math concepts with respect to the math problem (select all that apply)
-          </ReactMarkdown>
+  <ReactMarkdown>
+    {"Please identify the relevant math concepts with respect to the math problem (select all that apply)"}
+  </ReactMarkdown>
 
           <Checkbox.Group value={selectedOption} onChange={setSelectedOption}>
             <Checkbox value="probability" label="Probability" />
@@ -82,4 +76,4 @@ function noTimer_pilot1({ setAnswer }: StimulusParams<QuestionnaireParams>) {
   );
 }
 
-export default noTimer_pilot1;
+export default TimedQuestionnaire;
