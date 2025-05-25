@@ -28,13 +28,13 @@
     "components": {
       "introduction": {
             "type": "markdown",
-            "path": "stem-paths-faculty-pilot/faculty-pilot4/assets/introduction.md",
+            "path": "public/stem-paths-faculty-pilot/faculty-pilot4/assets/introduction.md",
             "recordAudio": false,
             "response": []
         },
         "problem4_q": {
            "type": "markdown",
-            "path": "stem-paths-faculty-pilot/faculty-pilot4/assets/problem4.md",
+            "path": "public/stem-paths-faculty-pilot/faculty-pilot4/assets/problem4.md",
             "recordAudio": true,
             "response": []
         },
@@ -66,7 +66,7 @@
         },
         "problem14_q": {
            "type": "markdown",
-            "path": "stem-paths-faculty-pilot/faculty-pilot4/assets/problem14.md",
+            "path": "public/stem-paths-faculty-pilot/faculty-pilot4/assets/problem14.md",
             "recordAudio": true,
             "response": []
         },
@@ -98,7 +98,7 @@
         },
         "problem30_q": {
            "type": "markdown",
-            "path": "stem-paths-faculty-pilot/faculty-pilot4/assets/problem30.md",
+            "path": "public/stem-paths-faculty-pilot/faculty-pilot4/assets/problem30.md",
             "recordAudio": true,
             "response": []
         },
