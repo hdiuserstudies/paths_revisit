@@ -1,0 +1,224 @@
+{
+    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.1.1/src/parser/StudyConfigSchema.json",
+    "studyMetadata": {
+      "title":  "Faculty: Math problem difficulty survey (version 4)",
+      "version": "pilot",
+      "authors": [
+        "Mahsan Nourani, Lace Padilla, Anjana Arunkumar, Shira Michel"
+      ],
+      "date": "2025-05-16",
+      "description": "Determine the difficulty of 3 probability and combination problems (version 4 pilot)",
+      "organizations": [
+        "Northeastern University"
+      ]
+    },
+    "importedLibraries": [
+      "mic-check"
+    ],
+    "uiConfig": {
+        "contactEmail": "hdiuserstudies@northeastern.edu",
+        "helpTextPath": "stem-paths-faculty/assets/help.md",
+        "logoPath": "revisitAssets/revisitLogoSquare.svg",
+        "withProgressBar": true,
+        "autoDownloadStudy": false,
+        "sidebar": true,
+        "studyEndMsg": "**Thank you for completing the study.**:",
+        "recordStudyAudio": true
+    },
+    "components": {
+      "introduction": {
+            "type": "markdown",
+            "path": "public/stem-paths-faculty-pilot/faculty-pilot4/assets/introduction.md",
+            "recordAudio": false,
+            "response": []
+        },
+        "problem4_q": {
+           "type": "markdown",
+            "path": "public/stem-paths-faculty-pilot/faculty-pilot4/assets/problem4.md",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem4-a": {
+            "type": "questionnaire",
+            "recordAudio": true,
+            "response": [
+                {
+                    "id": "p4-answer",
+                    "prompt": "Please select the answer.",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "10080",
+                        "5040",
+                        "720"
+                    ]
+                },
+                {
+                    "id": "p4-time",
+                    "prompt": "How much time would you allocate to a student to solve this problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "shortText",
+                    "placeholder": "Enter time in minutes"
+                }
+            ]
+        },
+        "problem14_q": {
+           "type": "markdown",
+            "path": "public/stem-paths-faculty-pilot/faculty-pilot4/assets/problem14.md",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem14-a": {
+            "type": "questionnaire",
+            "recordAudio": true,
+            "response": [
+                {
+                    "id": "p14-answer",
+                    "prompt": "Please select the answer.",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "5000",
+                        "25",
+                        "50000"
+                    ]
+                },
+                {
+                    "id": "p14-time",
+                    "prompt": "How much time would you allocate to a student to solve this problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "shortText",
+                    "placeholder": "Enter time in minutes"
+                }
+            ]
+        },
+        "problem30_q": {
+           "type": "markdown",
+            "path": "public/stem-paths-faculty-pilot/faculty-pilot4/assets/problem30.md",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem30-a": {
+            "type": "questionnaire",
+            "recordAudio": true,
+            "response": [
+                {
+                    "id": "p30-answer",
+                    "prompt": "Please select the answer.",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "0.231",
+                        "0.324",
+                        "0.424"
+                    ]
+                },
+                {
+                    "id": "p30-time",
+                    "prompt": "How much time would you allocate to a student to solve this problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "shortText",
+                    "placeholder": "Enter time in minutes"
+                }
+            ]
+        },
+        "demographics": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "demo-age",
+                    "prompt": "What is your age?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "18-29",
+                        "30-39",
+                        "40-49",
+                        "50-59",
+                        "60+"
+                    ]
+                },
+                {
+                    "id": "demo-gender",
+                    "prompt": "What gender do you self-identify with? If you prefer to self-identify, please describe in the text box.",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "Male",
+                        "Female",
+                        "Non-binary",
+                        "Prefer not to disclose"
+                    ],
+                    "withOther": true
+                },
+                {
+                    "id": "demo-teach",
+                    "prompt": "How many years have you been teaching?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "0-4",
+                        "5-10",
+                        "11-20",
+                        "21-30",
+                        "30+"
+                    ]
+                },
+                {
+                    "id": "demo-follow-up",
+                    "prompt": "I agree to be contacted for follow-up or for future research studies? [OPTIONAL]",
+                    "required": false,
+                    "location": "aboveStimulus",
+                    "type": "shortText",
+                    "placeholder": "Contact information (email)"
+                }
+            ]
+        }
+    },
+    
+    "sequence": {
+        "components": [
+            "introduction",
+            {
+                "components": [
+                    {
+                        "components": [
+                            "problem4_q",
+                            "problem4-a"
+                        ],
+                        "order": "fixed"
+                    },
+                    {
+                        "components": [
+                            "problem14_q",
+                            "problem14-a"
+                        ],
+                        "order": "fixed"
+                    },
+                    {
+                        "components": [
+                            "problem30_q",
+                            "problem30-a"
+                        ],
+                        "order": "fixed"
+                    }
+                ],
+                "order": "random"
+            },
+            "demographics"
+            
+        ],
+        "order": "fixed"
+
+      
+    }
+  }
