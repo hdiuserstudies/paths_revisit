@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Button, Box, Text } from '@mantine/core';
 import { StimulusParams } from '../../../store/types';
-import React from 'react';
 
-function FiveMinuteTimer({ setAnswer }: StimulusParams<unknown>) {
+function timer_pilot2({ setAnswer }: StimulusParams<unknown>) {
   const [timeLeft, setTimeLeft] = useState(300); // 5 minutes in seconds
   const [isRunning, setIsRunning] = useState(false);
   const [timerDone, setTimerDone] = useState(false);
@@ -60,4 +59,4 @@ function FiveMinuteTimer({ setAnswer }: StimulusParams<unknown>) {
   );
 }
 
-export default FiveMinuteTimer;
+export default timer_pilot2;

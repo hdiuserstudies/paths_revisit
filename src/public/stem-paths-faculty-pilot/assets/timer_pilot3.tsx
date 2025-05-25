@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Button, Box, Text, NumberInput } from '@mantine/core';
+import {
+  Button, Box, Text, NumberInput,
+} from '@mantine/core';
 import { StimulusParams } from '../../../store/types';
 
-function CustomTimer({ setAnswer }: StimulusParams<unknown>) {
+function timer_pilot3({ setAnswer }: StimulusParams<unknown>) {
   const [inputMinutes, setInputMinutes] = useState<number | ''>('');
   const [timeLeft, setTimeLeft] = useState<number>(0);
   const [isRunning, setIsRunning] = useState(false);
@@ -46,7 +48,10 @@ function CustomTimer({ setAnswer }: StimulusParams<unknown>) {
   };
 
   return (
-    <Box style={{ textAlign: 'center', padding: '2rem', maxWidth: 300, margin: 'auto' }}>
+    <Box style={{
+      textAlign: 'center', padding: '2rem', maxWidth: 300, margin: 'auto',
+    }}
+    >
       {!isRunning && !timerDone && (
         <Box mb="md">
           <NumberInput
@@ -61,7 +66,9 @@ function CustomTimer({ setAnswer }: StimulusParams<unknown>) {
       )}
 
       <Text size="xl" mb="md">
-        Timer: {formatTime(timeLeft)}
+        Timer:
+        {' '}
+        {formatTime(timeLeft)}
       </Text>
 
       {!isRunning && !timerDone && (
@@ -80,4 +87,4 @@ function CustomTimer({ setAnswer }: StimulusParams<unknown>) {
   );
 }
 
-export default CustomTimer;
+export default timer_pilot3;
