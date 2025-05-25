@@ -1,0 +1,3 @@
+### Please think-aloud as you solve the following math problem
+
+In how many ways can 6 girls and 2 boys sit in a row if the 2 boys insist on sitting next to each other?
