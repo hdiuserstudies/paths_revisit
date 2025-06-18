@@ -1,0 +1,3 @@
+### Please think-aloud as you solve the following math problem
+
+Marcy makes homemade candles that she markets as 99% guaranteed not to explode. 5% of the more dangerous candles also have a defect that makes them smell like wet dog. If she makes 50000 candles, how many of them will both smell like wet dog and explode?

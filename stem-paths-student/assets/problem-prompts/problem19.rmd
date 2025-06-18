@@ -1,0 +1,3 @@
+### Please think-aloud as you solve the following math problem
+
+A pharmacy receives 2/5 of its flu vaccine shipments from Vendor A and the remainder of its shipments from Vendor B. Each shipment contains a very large number of vaccine vials. For Vendor A’s shipments, 3% of the vials are ineffective. For Vendor B, 8% of the vials are ineffective. The hospital tests 25 randomly selected vials from a shipment and finds that two vials are ineffective. What is the probability that this shipment came from Vendor A?

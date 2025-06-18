@@ -1,0 +1,3 @@
+### Please think-aloud as you solve the following math problem
+
+Let Xₖ be the time elapsed between the (k-1)th accident and the k-th accident. Suppose X₁, X₂, ... are independent of each other. You use the exponential distribution with the probability density function: f(t) = 0.4e^(-0.4t), for t > 0, measured in minutes to model Xₖ. What is the probability of at least two accidents happening in a five-minute period?

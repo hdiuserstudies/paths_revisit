@@ -16,7 +16,7 @@ The study is part of a research study whose purpose is to evaluate the difficult
 - The procedures that you will be asked to complete will be determining the difficulty of math problems based on the language and answering a brief demographic survey. 
 - The reasonably foreseeable risks and discomforts to you in this study are minimal. 
 - There are no direct benefits to you from participation. 
-- As a token of appreciation for your participation, you will receive a $25 USD gift card. 
+- As a token of appreciation for your participation, you will receive a $25 USD gift card or be compensated $12/hour USD.
 
 This is a web-based study and should take about 60 minutes to complete.
 
@@ -32,7 +32,7 @@ Even if you begin the web-based online survey, you can stop at any time.
 **There are no direct benefits to you from participating in this study.**
 However, your responses may help us learn more about how math faculty members rate the difficulty of probability and combinations math problems. 
 
-**You will receive a $25 USD gift card for your participation in this study.**
+**You will receive a $25 USD gift card or be compensated $12/hour USD for your participation in this study.**
 
 **Your part in this study will be handled in a confidential manner.**  
 **Any reports or publications based on this research will use only group data and will not identify you or any individual as being affiliated with this project.**

@@ -1,0 +1,3 @@
+### Please think-aloud as you solve the following math problem
+
+Consider a fair 6-sided die with faces numbered 1 through 6. The die is rolled 5 times. Let N be the product of the 5 numbers rolled. What is the probability that the sum of all the distinct prime factors of N is divisible by 3? Express your answer as an irreducible fraction.
