@@ -5,19 +5,15 @@ const generateRandomCode = (length: number): string => {
   let result = '';
   const charactersLength = characters.length;
 
-  for (let i = 0; i < length; i++) {
+  for (let i = 0; i < length; i += 1) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
 
   return result;
 };
 
-const randCode: React.FC = () => {
+const RandCode: React.FC = () => {
   const [code, setCode] = useState<string>(() => generateRandomCode(8)); // default 8-character code
-
-  const regenerateCode = () => {
-    setCode(generateRandomCode(8));
-  };
 
   return (
     <div className="p-4 rounded-xl shadow-md bg-white w-fit">
@@ -26,4 +22,4 @@ const randCode: React.FC = () => {
   );
 };
 
-export default randCode;
+export default RandCode;

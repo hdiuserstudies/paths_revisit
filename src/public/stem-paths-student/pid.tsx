@@ -5,12 +5,8 @@ const generateParticipantId = (): string => {
   return `P${randomNumber}`;
 };
 
-const pid: React.FC = () => {
+const Pid: React.FC = () => {
   const [participantId, setParticipantId] = useState<string>(() => generateParticipantId());
-
-  const regenerateId = () => {
-    setParticipantId(generateParticipantId());
-  };
 
   return (
     <div className="p-4 rounded-xl shadow-md bg-white w-fit">
@@ -19,4 +15,4 @@ const pid: React.FC = () => {
   );
 };
 
-export default pid;
+export default Pid;
