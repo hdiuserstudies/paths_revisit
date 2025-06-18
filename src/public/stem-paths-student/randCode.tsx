@@ -13,7 +13,7 @@ const generateRandomCode = (length: number): string => {
 };
 
 const RandCode: React.FC = () => {
-  const [code, setCode] = useState<string>(() => generateRandomCode(8)); // default 8-character code
+  const [code] = useState<string>(() => generateRandomCode(8)); // default 8-character code
 
   return (
     <div className="p-4 rounded-xl shadow-md bg-white w-fit">
