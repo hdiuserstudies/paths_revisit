@@ -1,27 +1,18 @@
 {
   "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.1.1/src/parser/GlobalConfigSchema.json",
   "configsList": [
-    "stem-paths-faculty-pilot1",
-    "stem-paths-faculty-pilot2",
-    "stem-paths-faculty-pilot3",
-    "stem-paths-faculty-pilot4"
+    "stem-paths-faculty",
+    "stem-paths-student"
   ],
   "configs": {
 
-    "stem-paths-faculty-pilot4": {
-      "path": "stem-paths-faculty-pilot/faculty-pilot4/config.json"
+    "stem-paths-faculty": {
+      "path": "stem-paths-faculty/config.json"
     },
 
-    "stem-paths-faculty-pilot2": {
-      "path": "stem-paths-faculty-pilot/faculty-pilot2/config.json"
-    },
-
-    "stem-paths-faculty-pilot3": {
-      "path": "stem-paths-faculty-pilot/faculty-pilot3/config.json"
-    },
-
-    "stem-paths-faculty-pilot1": {
-      "path": "stem-paths-faculty-pilot/faculty-pilot1/config.json"
+    "stem-paths-student": {
+      "path": "stem-paths-student/config.json"
     }
+
   }
 }

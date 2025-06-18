@@ -1,0 +1,3 @@
+### Please think-aloud as you solve the following math problem
+
+Consider a random walk on the integers with probability 1/3 of moving to the right and probability 2/3 of moving to the left. Let Xₙ be the number at time n and assume X₀ = K > 0. Let T be the first time that the random walk reaches either 0 or 2K. Compute the probability P(Xₜ = 0) when K = 2.
