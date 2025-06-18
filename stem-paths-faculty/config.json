@@ -13,7 +13,7 @@
         ]
     },
     "importedLibraries": [
-      "mic-check"
+        "mic-check" 
     ],
     "uiConfig": {
         "contactEmail": "hdiuserstudies@northeastern.edu",
@@ -22,8 +22,7 @@
         "withProgressBar": true,
         "autoDownloadStudy": false,
         "sidebar": true,
-        "studyEndMsg": "**Thank you for completing the study. You may click this link and return to Prolific**: [https://app.prolific.com/submissions/complete?cc=C1MXB7XQ](https://app.prolific.com/submissions/complete?cc=C1MXB7XQ)",
-        "urlParticipantIdParam": "PROLIFIC_PID",
+        "studyEndMsg": "**Thank you for completing the study**",
         "recordStudyAudio": true
     },
     "components": {
@@ -31,16 +30,7 @@
             "type": "markdown",
             "path": "stem-paths-faculty/assets/introduction.md",
             "recordAudio": false,
-            "response": [
-                {
-                "id": "prolificId",
-                "prompt": "Please enter your Prolific ID",
-                "location": "belowStimulus",
-                "type": "shortText",
-                "placeholder": "Prolific ID",
-                "paramCapture": "PROLIFIC_PID"
-                }
-      ]
+            "response": []
         },
         "consent": {
         "type": "markdown",
