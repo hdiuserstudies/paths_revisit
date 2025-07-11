@@ -6,7 +6,7 @@ const generateParticipantId = (): string => {
 };
 
 const Pid: React.FC = () => {
-  const [participantId, setParticipantId] = useState<string>(() => generateParticipantId());
+  const [participantId] = useState<string>(() => generateParticipantId());
 
   return (
     <div className="p-4 rounded-xl shadow-md bg-white w-fit">
