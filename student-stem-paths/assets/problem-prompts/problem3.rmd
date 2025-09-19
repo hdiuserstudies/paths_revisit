@@ -1,0 +1,4 @@
+### Please think-aloud as you solve the following math problem
+
+A pirate searches seven islands for buried treasure. If each island has a ⅕ chance of having treasure, what is the probability that exactly 4 of the islands have treasure?
+

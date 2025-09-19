@@ -1,0 +1,3 @@
+### Please think-aloud as you solve the following math problem
+
+There are 5 green candies, 3 blue candies, and 4 red candies in a bag. If Violet randomly picks a candy from the bag, how likely is it that it's blue?

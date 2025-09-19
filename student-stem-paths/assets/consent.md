@@ -7,13 +7,13 @@
 ## Title of Project: STEM Paths with Generative AI
 ## Request to Participant in Reserch
 We/I would like to invite you to participate in a web-based study. 
-The study is part of a research study whose purpose is to solve and evaluate probability and combinatoric math problems.  
+The study is part of a research study whose purpose is to solve probability and combinatoric math problems.  
 
 ## Key Information
 - Your consent is being sought for participation in a research project and your participation is voluntary. 
 - The purpose of the research is to evaluate the difficulty of math problems to help develop an interactive large language model (LLM)-based system and you are being asked to take part because you are a current student. 
 - The anticipated amount of time that your participation will take will be 45 minutes.
-- The procedures that you will be asked to complete will be solving and evaluating math problems based on the language and answering a brief questionnaire. 
+- The procedures that you will be asked to complete will be solving math problems based on the language and answering a brief questionnaire. 
 - The reasonably foreseeable risks and discomforts to you in this study are minimal. 
 - There are no direct benefits to you from participation. 
 - As compensation for your participation, you will be compensated $12 USD/hour.
@@ -30,7 +30,7 @@ Even if you begin the web-based online survey, you can stop at any time.
 **The possible risks or discomforts of the study are minimal.**
 
 **There are no direct benefits to you from participating in this study.**
-However, your responses may help us learn more about how undergraduate students solve and evaluate probability and combinatoric math problems. 
+However, your responses may help us learn more about how undergraduate students solve probability and combinatoric math problems. 
 
 **You will be compensated $12 USD/hour for your participation.**
 
