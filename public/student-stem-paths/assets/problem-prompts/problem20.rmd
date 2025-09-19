@@ -1,0 +1,3 @@
+### Please think-aloud as you solve the following math problem
+
+Using six different colors to color each edge of the regular tetrahedron (ABCD), each edge can only be colored with one color and edges sharing a vertex cannot have the same color. What is the probability that all edges have different colors?

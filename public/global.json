@@ -2,7 +2,8 @@
   "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.1.1/src/parser/GlobalConfigSchema.json",
   "configsList": [
     "stem-paths-faculty",
-    "stem-paths-student"
+    "stem-paths-student",
+    "student-stem-paths"
   ],
   "configs": {
 
@@ -12,6 +13,10 @@
 
     "stem-paths-student": {
       "path": "stem-paths-student/config.json"
+    },
+
+    "student-stem-paths": {
+      "path": "student-stem-paths/config.json"
     }
 
   }

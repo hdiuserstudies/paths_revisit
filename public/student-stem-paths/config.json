@@ -1,0 +1,709 @@
+{
+    "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
+    "studyMetadata": {
+        "title": "Solve 3 math problems",
+        "version": "pilot",
+        "authors": [
+            "Mahsan Nourani, Lace Padilla, Anjana Arunkumar, Shira Michel"
+        ],
+        "date": "2024-03-19",
+        "description": "Determine the difficulty of 6 probability and combination problems",
+        "organizations": [
+            "Northeastern University"
+        ]
+    },
+    "importedLibraries": [
+      "mic-check"
+    ],
+    "uiConfig": {
+        "contactEmail": "hdiuserstudies@northeastern.edu",
+        "helpTextPath": "stem-paths-faculty/assets/help.md",
+        "logoPath": "revisitAssets/revisitLogoSquare.svg",
+        "withProgressBar": true,
+        "autoDownloadStudy": false,
+        "sidebar": true,
+        "studyEndMsg": "**Thank you for completing the study.**:",
+        "recordStudyAudio": true
+    },
+    "components": {
+        "introduction": {
+            "type": "markdown",
+            "path": "student-stem-paths/assets/introduction.md",
+            "recordAudio": false,
+            "response": []
+        },
+        "consent": {
+        "type": "markdown",
+        "path": "student-stem-paths/assets/consent.md",
+        "recordAudio": false,
+        "response": [
+          {
+            "id": "consent-radio",
+            "prompt": "Click `accept` to consent to participate in this study.",
+            "required": true,
+            "location": "belowStimulus",
+            "type": "radio",
+            "options": [
+                "accept",
+                "do not accept"
+          ],
+          "withOther": false
+          }
+        ]
+      },
+      "tutorial": {
+            "type": "markdown",
+            "path": "student-stem-paths/assets/tutorial.md",
+            "recordAudio": false,
+            "response": []
+        },
+      "tutorial-good": {
+        "type": "video",
+        "path":"stem-paths-student/assets/video-tutorial/thinkaloud-good.mp4",
+        "recordAudio": false,
+        "forceCompletion": true,
+        "response": []
+        },
+        "tutorial-bad": {
+        "type": "video",
+        "path":"stem-paths-student/assets/video-tutorial/thinkaloud-bad.mp4",
+        "recordAudio": false,
+        "forceCompletion": true,
+        "response": []
+        },
+      "attention-check": {
+            "type": "markdown",
+            "path": "student-stem-paths/assets/attention-check.rmd",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "check-radio",
+                    "prompt": "What is the probability of getting heads three times in a row when flipping a coin? If you are carefully reading this, the answer is 1/8.",
+                    "location": "belowStimulus",
+                    "type": "radio",
+                    "options": [
+                        "1/2",
+                        "1/3",
+                        "1/8"
+                    ]
+                  }
+            ]
+        },
+      "demographics": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "demo-age",
+                    "prompt": "What is your age?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "18-29",
+                        "30-39",
+                        "40-49",
+                        "50-59",
+                        "60+"
+                    ],
+                    "withDivider": true
+                },
+                {
+                    "id": "demo-gender",
+                    "prompt": "What gender do you self-identify with? If you prefer to self-identify, please describe in the text box.",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "radio",
+                    "options": [
+                        "Male",
+                        "Female",
+                        "Non-binary",
+                        "Prefer not to disclose"
+                    ],
+                    "withOther": true
+                }
+            ]
+        },
+        "problem1-q": {
+           "type": "markdown",
+            "path": "student-stem-paths/assets/problem-prompts/problem1.rmd",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem1-solve-eval": {
+            "type": "questionnaire",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "p1-complete",
+                    "prompt": "How complete did you solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all complete",
+                    "rightLabel": "Completely solved",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p1-confident",
+                    "prompt": "How confident are you with your approach to solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all confident",
+                    "rightLabel": "Completely confident",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p1-insight",
+                    "prompt": "What additional tools or resources could have supported you in solving the problem? For example, you might consider things like visual aids, step-by-step hints, extra explanations, or technology-based tools.",
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": ""
+                }
+            ]
+        },
+
+        "problem2-q": {
+           "type": "markdown",
+            "path": "student-stem-paths/assets/problem-prompts/problem2.rmd",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem2-solve-eval": {
+            "type": "questionnaire",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "p2-complete",
+                    "prompt": "How complete did you solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all complete",
+                    "rightLabel": "Completely solved",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p2-confident",
+                    "prompt": "How confident are you with your approach to solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all confident",
+                    "rightLabel": "Completely confident",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p2-insight",
+                    "prompt": "What additional tools or resources could have supported you in solving the problem? For example, you might consider things like visual aids, step-by-step hints, extra explanations, or technology-based tools.",
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": ""
+                }
+            ]
+        },
+        "problem7-q": {
+           "type": "markdown",
+            "path": "student-stem-paths/assets/problem-prompts/problem7.rmd",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem7-solve-eval": {
+            "type": "questionnaire",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "p7-complete",
+                    "prompt": "How complete did you solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all complete",
+                    "rightLabel": "Completely solved",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p7-confident",
+                    "prompt": "How confident are you with your approach to solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all confident",
+                    "rightLabel": "Completely confident",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p7-insight",
+                    "prompt": "What additional tools or resources could have supported you in solving the problem? For example, you might consider things like visual aids, step-by-step hints, extra explanations, or technology-based tools.",
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": ""
+                }
+            ]
+        },
+        "problem12-q": {
+           "type": "markdown",
+            "path": "student-stem-paths/assets/problem-prompts/problem12.rmd",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem12-solve-eval": {
+            "type": "questionnaire",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "p12-complete",
+                    "prompt": "How complete did you solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all complete",
+                    "rightLabel": "Completely solved",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p12-confident",
+                    "prompt": "How confident are you with your approach to solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all confident",
+                    "rightLabel": "Completely confident",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p12-insight",
+                    "prompt": "What additional tools or resources could have supported you in solving the problem? For example, you might consider things like visual aids, step-by-step hints, extra explanations, or technology-based tools.",
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": ""
+                }
+            ]
+        },
+        "problem14-q": {
+           "type": "markdown",
+            "path": "student-stem-paths/assets/problem-prompts/problem14.rmd",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem14-solve-eval": {
+            "type": "questionnaire",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "p14-complete",
+                    "prompt": "How complete did you solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all complete",
+                    "rightLabel": "Completely solved",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p14-confident",
+                    "prompt": "How confident are you with your approach to solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all confident",
+                    "rightLabel": "Completely confident",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p14-insight",
+                    "prompt": "What additional tools or resources could have supported you in solving the problem? For example, you might consider things like visual aids, step-by-step hints, extra explanations, or technology-based tools.",
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": ""
+                }
+            ]
+        },
+        "problem20-q": {
+           "type": "markdown",
+            "path": "student-stem-paths/assets/problem-prompts/problem20.rmd",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem20-solve-eval": {
+            "type": "questionnaire",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "p20-complete",
+                    "prompt": "How complete did you solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all complete",
+                    "rightLabel": "Completely solved",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p20-confident",
+                    "prompt": "How confident are you with your approach to solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all confident",
+                    "rightLabel": "Completely confident",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p20-insight",
+                    "prompt": "What additional tools or resources could have supported you in solving the problem? For example, you might consider things like visual aids, step-by-step hints, extra explanations, or technology-based tools.",
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": ""
+                }
+            ]
+        },
+        "problem24-q": {
+           "type": "markdown",
+            "path": "student-stem-paths/assets/problem-prompts/problem24.rmd",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem24-solve-eval": {
+            "type": "questionnaire",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "p24-complete",
+                    "prompt": "How complete did you solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all complete",
+                    "rightLabel": "Completely solved",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p24-confident",
+                    "prompt": "How confident are you with your approach to solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all confident",
+                    "rightLabel": "Completely confident",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p24-insight",
+                    "prompt": "What additional tools or resources could have supported you in solving the problem? For example, you might consider things like visual aids, step-by-step hints, extra explanations, or technology-based tools.",
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": ""
+                }
+            ]
+        },
+        "problem26-q": {
+           "type": "markdown",
+            "path": "student-stem-paths/assets/problem-prompts/problem26.rmd",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem26-solve-eval": {
+            "type": "questionnaire",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "p26-complete",
+                    "prompt": "How complete did you solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all complete",
+                    "rightLabel": "Completely solved",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p26-confident",
+                    "prompt": "How confident are you with your approach to solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all confident",
+                    "rightLabel": "Completely confident",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p26-insight",
+                    "prompt": "What additional tools or resources could have supported you in solving the problem? For example, you might consider things like visual aids, step-by-step hints, extra explanations, or technology-based tools.",
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": ""
+                }
+            ]
+        },
+        "problem29-q": {
+           "type": "markdown",
+            "path": "student-stem-paths/assets/problem-prompts/problem29.rmd",
+            "recordAudio": true,
+            "response": []
+        },
+        "problem29-solve-eval": {
+            "type": "questionnaire",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "p29-complete",
+                    "prompt": "How complete did you solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all complete",
+                    "rightLabel": "Completely solved",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p29-confident",
+                    "prompt": "How confident are you with your approach to solve the problem?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all confident",
+                    "rightLabel": "Completely confident",
+                    "numItems": 5,
+                    "withDivider": true
+                },
+                {
+                    "id": "p29-insight",
+                    "prompt": "What additional tools or resources could have supported you in solving the problem? For example, you might consider things like visual aids, step-by-step hints, extra explanations, or technology-based tools.",
+                    "location": "belowStimulus",
+                    "type": "longText",
+                    "placeholder": ""
+                }
+            ]
+        },
+        "subjective_numeracy_scale": {
+            "type": "questionnaire",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "p1-sns",
+                    "prompt": "How good are you at working with fractions?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all good",
+                    "rightLabel": "Extremely good",
+                    "numItems": 6,
+                    "withDivider": true
+                },
+                {
+                    "id": "p2-sns",
+                    "prompt": "How good are you at working with percentages?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all good",
+                    "rightLabel": "Extremely good",
+                    "numItems": 6,
+                    "withDivider": true
+                },
+                {
+                    "id": "p3-sns",
+                    "prompt": "How good are you at calculating a 15% tip?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all good",
+                    "rightLabel": "Extremely good",
+                    "numItems": 6,
+                    "withDivider": true
+                },
+                {
+                    "id": "p4-sns",
+                    "prompt": "How good are you at figuring out how much a shirt will cost if it is 25% off?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all good",
+                    "rightLabel": "Extremely good",
+                    "numItems": 6,
+                    "withDivider": true
+                },
+                {
+                    "id": "p5-sns",
+                    "prompt": "When reading the newspaper, how helpful do you find tables and graphs that are parts of a story?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not at all",
+                    "rightLabel": "Extremely",
+                    "numItems": 6,
+                    "withDivider": true
+                },
+                {
+                    "id": "p6-sns",
+                    "prompt": "When people tell you the chance of something happening, do you prefer that they use words (`it rarely happens`) or numbers (`there's a 1% chance`)?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Always prefer words",
+                    "rightLabel": "Always prefer numbers",
+                    "numItems": 6,
+                    "withDivider": true
+                },
+                {
+                    "id": "p7-sns",
+                    "prompt": "When you hear a weather forecast, do you prefer predictions using percentages (e.g., `there will be a 20% chance of rain today`) or predictions using only words (e.g., `there is a small chance of rain today`)?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Always prefer percentages",
+                    "rightLabel": "Always prefer words",
+                    "numItems": 6,
+                    "withDivider": true
+                },
+                {
+                    "id": "p8-sns",
+                    "prompt": "How often do you find numerical information to be useful?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Never",
+                    "rightLabel": "Very often",
+                    "numItems": 6
+                }
+
+            ]
+        }
+    },
+
+    "sequence": {
+        "components": [
+            "introduction",
+            {
+                "components": ["consent"],
+                "skip": [{
+                    "name": "consent",
+                    "check": "response",
+                    "responseId": "consent-radio",
+                    "value": "accept",
+                    "comparison": "notEqual",
+                    "to": "end"
+                }],
+                "order": "fixed"
+            },
+            "tutorial",
+            "tutorial-good",
+            "tutorial-bad",
+            {
+                "components": [
+                    {
+                        "components": [
+                        {
+                            "components": [
+                                "problem1-q",
+                                "problem1-solve-eval"
+                            ],
+                            "order": "fixed"
+                        },
+                        {
+                            "components": [
+                                "problem2-q",
+                                "problem2-solve-eval"
+                            ],
+                            "order": "fixed"
+                        },
+                        {
+                            "components": [
+                                "problem7-q",
+                                "problem7-solve-eval"
+                            ],
+                            "order": "fixed"
+                        }
+                    ],
+                    "order": "latinSquare",
+                    "numSamples": 1
+                    },
+                    {
+                        "components": [
+                        {
+                            "components": [
+                                "problem12-q",
+                                "problem12-solve-eval"
+                            ],
+                            "order": "fixed"
+                        },
+                        {
+                            "components": [
+                                "problem14-q",
+                                "problem14-solve-eval"
+                            ],
+                            "order": "fixed"
+                        },
+                        {
+                            "components": [
+                                "problem20-q",
+                                "problem20-solve-eval"
+                            ],
+                            "order": "fixed"
+                        }
+                    ],
+                    "order": "latinSquare",
+                    "numSamples": 1
+                    },
+                    {
+                        "components": [
+                        {
+                            "components": [
+                                "problem24-q",
+                                "problem24-solve-eval"
+                            ],
+                            "order": "fixed"
+                        },
+                        {
+                            "components": [
+                                "problem26-q",
+                                "problem26-solve-eval"
+                            ],
+                            "order": "fixed"
+                        },
+                        {
+                            "components": [
+                                "problem29-q",
+                                "problem29-solve-eval"
+                            ],
+                            "order": "fixed"
+                        }
+                    ],
+                    "order": "latinSquare",
+                    "numSamples": 1
+                    }
+                ],
+                "order": "random",
+                "interruptions": [
+                    {
+                        "spacing": "random",
+                        "numInterruptions": 1,
+                        "components": ["attention-check"]
+                    }
+                ]
+            },
+
+            "subjective_numeracy_scale",
+            "demographics"
+        ],
+        "order": "fixed"
+    }
+}

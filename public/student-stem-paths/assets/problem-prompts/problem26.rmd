@@ -1,0 +1,3 @@
+### Please think-aloud as you solve the following math problem
+
+In a game of Tic-Tac-Toe, if the first player can only make random moves each turn, what is the probability of the second player winning? The second player prioritizes winning and is clever enough.

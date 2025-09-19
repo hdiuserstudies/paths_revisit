@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
     "studyMetadata": {
-        "title": "Student: Math problem difficulty survey",
+        "title": "Solve and evaluate 3 math problems",
         "version": "pilot",
         "authors": [
             "Mahsan Nourani, Lace Padilla, Anjana Arunkumar, Shira Michel"
@@ -33,28 +33,48 @@
             "response": []
         },
         "consent": {
-        "type": "markdown",
-        "path": "stem-paths-student/assets/consent.md",
-        "recordAudio": false,
-        "response": [
-          {
-            "id": "consent-radio",
-            "prompt": "Click `accept` to consent to participate in this study.",
-            "required": true,
-            "location": "belowStimulus",
-            "type": "radio",
-            "options": [
-                "accept",
-                "do not accept"
-          ],
-          "withOther": false
-          }
-        ]
+            "type": "markdown",
+            "path": "stem-paths-student/assets/consent.md",
+            "recordAudio": false,
+            "response": [
+                {
+                    "id": "consent-radio",
+                    "prompt": "Click `accept` to consent to participate in this study.",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "radio",
+                    "options": [
+                        "accept",
+                        "do not accept"
+                ],
+                "withOther": false
+                }
+            ]
       },
+      "tutorial": {
+            "type": "markdown",
+            "path": "student-stem-paths/assets/tutorial.md",
+            "recordAudio": false,
+            "response": []
+        },
+      "tutorial-good": {
+            "type": "video",
+            "path":"stem-paths-student/assets/video-tutorial/thinkaloud-good.mp4",
+            "recordAudio": false,
+            "forceCompletion": true,
+            "response": []
+        },
+        "tutorial-bad": {
+            "type": "video",
+            "path":"stem-paths-student/assets/video-tutorial/thinkaloud-bad.mp4",
+            "recordAudio": false,
+            "forceCompletion": true,
+            "response": []
+        },
       "attention-check": {
             "type": "markdown",
             "path": "stem-paths-student/assets/attention-check.rmd",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "check-radio",
@@ -67,36 +87,6 @@
                         "1/8"
                     ]
                   }
-            ]
-        },
-        "pid": {
-            "type": "react-component",
-            "path": "stem-paths-student/pid.tsx",
-            "recordAudio": false,
-            "parameters": {},
-            "response": [
-                {
-                "id": "pid",
-                "prompt": "The following is your participant ID:",
-                "required": false,
-                "location": "aboveStimulus",
-                "type": "reactive"
-                }
-            ]
-        },
-        "rand-code-ec": {
-            "type": "react-component",
-            "path": "stem-paths-student/randCode.tsx",
-            "parameters": {},
-            "recordAudio": false,
-            "response": [
-                {
-                "id": "pid",
-                "prompt": "The following is your code to receive extra credit:",
-                "required": false,
-                "location": "aboveStimulus",
-                "type": "reactive"
-                }
             ]
         },
       "demographics": {
@@ -114,7 +104,8 @@
                         "40-49",
                         "50-59",
                         "60+"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "demo-gender",
@@ -140,7 +131,7 @@
         },
         "problem1-solve-eval": {
             "type": "questionnaire",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p1-complete",
@@ -150,7 +141,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all complete",
                     "rightLabel": "Completely solved",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
                     "id": "p1-confident",
@@ -168,10 +160,11 @@
             "type": "image",
             "path": "stem-paths-student/assets/step-screenshots/problem1-screenshot.png",
             "style": {
-                "width": "1000px"
+                "width": "1000px",
+                "marginBottom": "20px"
             },
             "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p1-approach-yn",
@@ -182,7 +175,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ], 
+                    "withDivider": true
                 },
                 {
                     "id": "p1-solution-yn",
@@ -193,7 +187,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p1-similar",
@@ -203,27 +198,33 @@
                     "type": "likert",
                     "leftLabel": "Dissimilar",
                     "rightLabel": "The same",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
-                    "id": "p1-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
+                    "id": "p1-agree",
+                    "prompt": "For each step, check the box with each statement you agree with",
                     "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p1-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
+                    "type": "matrix-checkbox",
+                    "answerOptions": [
+                    "This step is necessary",
+                    "This step is correct",
+                    "I need a visual aid",
+                    "The language used is too short",
+                    "The language used is too long"
+                    ],
+                    "questionOptions": [
+                      "Step 1",
+                      "Step 2",
+                      "Step 3",
+                      "Step 4",
+                      "Step 5",
+                      "Step 6",
+                      "Step 7",
+                      "Step 8",
+                      "Step 9"
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p1-change-yn",
@@ -234,7 +235,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p1-justify",
@@ -253,20 +255,21 @@
         },
         "problem2-solve-eval": {
             "type": "questionnaire",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
-                    "id": "p1-complete",
+                    "id": "p2-complete",
                     "prompt": "How complete did you solve the problem?",
                     "required": true,
                     "location": "aboveStimulus",
                     "type": "likert",
                     "leftLabel": "Not at all complete",
                     "rightLabel": "Completely solved",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
-                    "id": "p1-confident",
+                    "id": "p2-confident",
                     "prompt": "How confident are you with your approach to solve the problem?",
                     "required": true,
                     "location": "aboveStimulus",
@@ -281,10 +284,11 @@
             "type": "image",
             "path": "stem-paths-student/assets/step-screenshots/problem2-screenshot.png",
             "style": {
-                "width": "1000px"
+                "width": "1000px",
+                "marginBottom": "20px"
             },
             "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p2-approach-yn",
@@ -295,7 +299,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p2-solution-yn",
@@ -306,7 +311,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p2-similar",
@@ -316,27 +322,33 @@
                     "type": "likert",
                     "leftLabel": "Dissimilar",
                     "rightLabel": "The same",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
-                    "id": "p2-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
+                    "id": "p2-agree",
+                    "prompt": "For each step, check the box with each statement you agree with",
                     "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p2-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
+                    "type": "matrix-checkbox",
+                    "answerOptions": [
+                    "This step is necessary",
+                    "This step is correct",
+                    "I need a visual aid",
+                    "The language used is too short",
+                    "The language used is too long"
+                    ],
+                    "questionOptions": [
+                      "Step 1",
+                      "Step 2",
+                      "Step 3",
+                      "Step 4",
+                      "Step 5",
+                      "Step 6",
+                      "Step 7",
+                      "Step 8",
+                      "Step 9"
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p2-change-yn",
@@ -347,461 +359,11 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p2-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem3-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem3.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem3-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p3-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p3-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem3-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem3-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p3-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p3-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p3-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p3-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p3-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p3-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p3-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem4-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem4.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem4-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p4-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p4-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem4-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem4-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p4-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p4-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p4-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p4-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p4-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p4-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p4-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem5-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem5.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem5-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p5-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p5-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem5-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem5-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p5-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p5-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p5-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p5-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p5-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p5-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p5-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem6-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem6.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem6-solve-eval": {
-            "type": "questionnaire",
-            "response": [
-                {
-                    "id": "p6-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p6-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem6-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem6-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p6-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p6-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p6-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p6-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p6-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p6-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p6-justify",
                     "prompt": "Please provide justification for your above responses:",
                     "location": "belowStimulus",
                     "type": "longText",
@@ -817,7 +379,7 @@
         },
         "problem7-solve-eval": {
             "type": "questionnaire",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p7-complete",
@@ -827,7 +389,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all complete",
                     "rightLabel": "Completely solved",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
                     "id": "p7-confident",
@@ -845,10 +408,11 @@
             "type": "image",
             "path": "stem-paths-student/assets/step-screenshots/problem7-screenshot.png",
             "style": {
-                "width": "1000px"
+                "width": "1000px",
+                "marginBottom": "20px"
             },
             "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p7-approach-yn",
@@ -859,7 +423,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p7-solution-yn",
@@ -870,7 +435,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p7-similar",
@@ -880,27 +446,33 @@
                     "type": "likert",
                     "leftLabel": "Dissimilar",
                     "rightLabel": "The same",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
-                    "id": "p7-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
+                    "id": "p7-agree",
+                    "prompt": "For each step, check the box with each statement you agree with",
                     "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p7-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
+                    "type": "matrix-checkbox",
+                    "answerOptions": [
+                    "This step is necessary",
+                    "This step is correct",
+                    "I need a visual aid",
+                    "The language used is too short",
+                    "The language used is too long"
+                    ],
+                    "questionOptions": [
+                      "Step 1",
+                      "Step 2",
+                      "Step 3",
+                      "Step 4",
+                      "Step 5",
+                      "Step 6",
+                      "Step 7",
+                      "Step 8",
+                      "Step 9"
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p7-change-yn",
@@ -911,462 +483,11 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p7-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem8-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem8.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem8-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p8-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p8-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem8-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem8-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p8-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p8-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p8-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p8-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p8-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p8-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p8-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem9-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem9.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem9-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p9-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p9-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem9-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem9-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p9-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p9-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p9-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p9-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p9-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p9-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p9-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem10-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem10.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem10-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p10-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p10-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem10-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem10-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p10-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p10-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p10-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p10-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p10-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p10-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p10-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem11-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem11.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem11-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p11-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p11-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem11-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem11-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p11-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p11-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p11-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p11-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p11-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p11-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p11-justify",
                     "prompt": "Please provide justification for your above responses:",
                     "location": "belowStimulus",
                     "type": "longText",
@@ -1382,7 +503,7 @@
         },
         "problem12-solve-eval": {
             "type": "questionnaire",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p12-complete",
@@ -1392,7 +513,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all complete",
                     "rightLabel": "Completely solved",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
                     "id": "p12-confident",
@@ -1410,10 +532,11 @@
             "type": "image",
             "path": "stem-paths-student/assets/step-screenshots/problem12-screenshot.png",
             "style": {
-                "width": "1000px"
+                "width": "1000px",
+                "marginBottom": "20px"
             },
             "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p12-approach-yn",
@@ -1424,7 +547,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p12-solution-yn",
@@ -1435,27 +559,33 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
-                    "id": "p12-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
+                    "id": "p12-agree",
+                    "prompt": "For each step, check the box with each statement you agree with",
                     "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p12-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
+                    "type": "matrix-checkbox",
+                    "answerOptions": [
+                    "This step is necessary",
+                    "This step is correct",
+                    "I need a visual aid",
+                    "The language used is too short",
+                    "The language used is too long"
+                    ],
+                    "questionOptions": [
+                      "Step 1",
+                      "Step 2",
+                      "Step 3",
+                      "Step 4",
+                      "Step 5",
+                      "Step 6",
+                      "Step 7",
+                      "Step 8",
+                      "Step 9"
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p12-quality",
@@ -1465,7 +595,8 @@
                     "type": "likert",
                     "leftLabel": "Very poor",
                     "rightLabel": "Excellent",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
                     "id": "p12-change-yn",
@@ -1476,122 +607,11 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p12-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem13-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem13.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem13-solve-eval": {
-            "type": "questionnaire",
-            "response": [
-                {
-                    "id": "p13-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p13-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem13-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem13-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p13-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p13-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p13-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p13-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p13-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p13-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p13-justify",
                     "prompt": "Please provide justification for your above responses:",
                     "location": "belowStimulus",
                     "type": "longText",
@@ -1607,7 +627,7 @@
         },
         "problem14-solve-eval": {
             "type": "questionnaire",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p14-complete",
@@ -1617,7 +637,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all complete",
                     "rightLabel": "Completely solved",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
                     "id": "p14-confident",
@@ -1635,10 +656,11 @@
             "type": "image",
             "path": "stem-paths-student/assets/step-screenshots/problem14-screenshot.png",
             "style": {
-                "width": "1000px"
+                "width": "1000px",
+                "marginBottom": "20px"
             },
             "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p14-approach-yn",
@@ -1649,7 +671,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p14-solution-yn",
@@ -1660,7 +683,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p14-similar",
@@ -1670,27 +694,33 @@
                     "type": "likert",
                     "leftLabel": "Dissimilar",
                     "rightLabel": "The same",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
-                    "id": "p14-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
+                    "id": "p14-agree",
+                    "prompt": "For each step, check the box with each statement you agree with",
                     "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p14-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
+                    "type": "matrix-checkbox",
+                    "answerOptions": [
+                    "This step is necessary",
+                    "This step is correct",
+                    "I need a visual aid",
+                    "The language used is too short",
+                    "The language used is too long"
+                    ],
+                    "questionOptions": [
+                      "Step 1",
+                      "Step 2",
+                      "Step 3",
+                      "Step 4",
+                      "Step 5",
+                      "Step 6",
+                      "Step 7",
+                      "Step 8",
+                      "Step 9"
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p14-change-yn",
@@ -1701,575 +731,11 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p14-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem15-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem15.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem15-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p15-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p15-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem15-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem15-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p15-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p15-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p15-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p15-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p15-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p15-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p15-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem16-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem16.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem16-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p16-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p16-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem16-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem16-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p16-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p16-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p16-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p16-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p16-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p16-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p16-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem17-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem17.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem17-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p17-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p17-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem17-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem17-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p17-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p17-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p17-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p17-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p17-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p17-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p17-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem18-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem18.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem18-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p18-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p18-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem18-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem18-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p18-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p18-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p18-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p18-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p18-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p18-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p18-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem19-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem19.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem19-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p19-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p19-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem19-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem19-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p19-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p19-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p19-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p19-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p19-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p19-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p19-justify",
                     "prompt": "Please provide justification for your above responses:",
                     "location": "belowStimulus",
                     "type": "longText",
@@ -2285,7 +751,7 @@
         },
         "problem20-solve-eval": {
             "type": "questionnaire",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p20-complete",
@@ -2295,7 +761,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all complete",
                     "rightLabel": "Completely solved",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
                     "id": "p20-confident",
@@ -2313,10 +780,11 @@
             "type": "image",
             "path": "stem-paths-student/assets/step-screenshots/problem20-screenshot.png",
             "style": {
-                "width": "1000px"
+                "width": "1000px",
+                "marginBottom": "20px"
             },
             "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p20-approach-yn",
@@ -2327,7 +795,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p20-solution-yn",
@@ -2338,7 +807,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p20-similar",
@@ -2348,27 +818,33 @@
                     "type": "likert",
                     "leftLabel": "Dissimilar",
                     "rightLabel": "The same",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
-                    "id": "p20-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
+                    "id": "p20-agree",
+                    "prompt": "For each step, check the box with each statement you agree with",
                     "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p20-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
+                    "type": "matrix-checkbox",
+                    "answerOptions": [
+                    "This step is necessary",
+                    "This step is correct",
+                    "I need a visual aid",
+                    "The language used is too short",
+                    "The language used is too long"
+                    ],
+                    "questionOptions": [
+                      "Step 1",
+                      "Step 2",
+                      "Step 3",
+                      "Step 4",
+                      "Step 5",
+                      "Step 6",
+                      "Step 7",
+                      "Step 8",
+                      "Step 9"
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p20-change-yn",
@@ -2379,349 +855,11 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p20-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem21-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem21.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem21-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p21-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p21-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem21-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem21-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p21-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p21-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p21-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p21-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p21-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p21-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p21-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem22-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem22.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem22-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p22-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p22-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem22-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem22-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p22-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p22-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p22-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p22-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p22-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p22-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p22-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem23-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem23.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem23-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p23-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p23-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem23-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem23-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p23-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p23-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p23-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p23-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p23-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p23-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p23-justify",
                     "prompt": "Please provide justification for your above responses:",
                     "location": "belowStimulus",
                     "type": "longText",
@@ -2737,7 +875,7 @@
         },
         "problem24-solve-eval": {
             "type": "questionnaire",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p24-complete",
@@ -2747,7 +885,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all complete",
                     "rightLabel": "Completely solved",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
                     "id": "p24-confident",
@@ -2765,10 +904,11 @@
             "type": "image",
             "path": "stem-paths-student/assets/step-screenshots/problem24-screenshot.png",
             "style": {
-                "width": "1000px"
+                "width": "1000px",
+                "marginBottom": "20px"
             },
             "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p24-approach-yn",
@@ -2779,7 +919,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p24-solution-yn",
@@ -2790,7 +931,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p24-similar",
@@ -2800,27 +942,33 @@
                     "type": "likert",
                     "leftLabel": "Dissimilar",
                     "rightLabel": "The same",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
-                    "id": "p24-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
+                    "id": "p24-agree",
+                    "prompt": "For each step, check the box with each statement you agree with",
                     "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p24-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
+                    "type": "matrix-checkbox",
+                    "answerOptions": [
+                    "This step is necessary",
+                    "This step is correct",
+                    "I need a visual aid",
+                    "The language used is too short",
+                    "The language used is too long"
+                    ],
+                    "questionOptions": [
+                      "Step 1",
+                      "Step 2",
+                      "Step 3",
+                      "Step 4",
+                      "Step 5",
+                      "Step 6",
+                      "Step 7",
+                      "Step 8",
+                      "Step 9"
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p24-change-yn",
@@ -2831,123 +979,11 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p24-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem25-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem25.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem25-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p25-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p25-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem25-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem25-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p25-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p25-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p25-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p25-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p25-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p25-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p25-justify",
                     "prompt": "Please provide justification for your above responses:",
                     "location": "belowStimulus",
                     "type": "longText",
@@ -2963,7 +999,7 @@
         },
         "problem26-solve-eval": {
             "type": "questionnaire",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p26-complete",
@@ -2973,7 +1009,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all complete",
                     "rightLabel": "Completely solved",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
                     "id": "p26-confident",
@@ -2991,10 +1028,11 @@
             "type": "image",
             "path": "stem-paths-student/assets/step-screenshots/problem1-screenshot.png",
             "style": {
-                "width": "1000px"
+                "width": "1000px",
+                "marginBottom": "20px"
             },
             "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p26-approach-yn",
@@ -3005,7 +1043,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p26-solution-yn",
@@ -3016,7 +1055,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p26-similar",
@@ -3026,27 +1066,33 @@
                     "type": "likert",
                     "leftLabel": "Dissimilar",
                     "rightLabel": "The same",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
-                    "id": "p26-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
+                    "id": "p26-agree",
+                    "prompt": "For each step, check the box with each statement you agree with",
                     "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p26-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
+                    "type": "matrix-checkbox",
+                    "answerOptions": [
+                    "This step is necessary",
+                    "This step is correct",
+                    "I need a visual aid",
+                    "The language used is too short",
+                    "The language used is too long"
+                    ],
+                    "questionOptions": [
+                      "Step 1",
+                      "Step 2",
+                      "Step 3",
+                      "Step 4",
+                      "Step 5",
+                      "Step 6",
+                      "Step 7",
+                      "Step 8",
+                      "Step 9"
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p26-change-yn",
@@ -3057,236 +1103,11 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p26-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem27-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem27.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem27-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p27-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p27-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem27-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem27-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p27-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p27-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p27-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p27-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p27-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p27-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p27-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "problem28-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem28.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem28-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p28-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p28-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem28-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem28-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p28-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p28-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p28-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p28-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p28-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p28-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p28-justify",
                     "prompt": "Please provide justification for your above responses:",
                     "location": "belowStimulus",
                     "type": "longText",
@@ -3302,7 +1123,7 @@
         },
         "problem29-solve-eval": {
             "type": "questionnaire",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p29-complete",
@@ -3312,7 +1133,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all complete",
                     "rightLabel": "Completely solved",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
                     "id": "p29-confident",
@@ -3330,10 +1152,11 @@
             "type": "image",
             "path": "stem-paths-student/assets/step-screenshots/problem29-screenshot.png",
             "style": {
-                "width": "1000px"
+                "width": "1000px",
+                "marginBottom": "20px"
             },
             "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p29-approach-yn",
@@ -3344,7 +1167,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p29-solution-yn",
@@ -3355,7 +1179,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p29-similar",
@@ -3365,27 +1190,33 @@
                     "type": "likert",
                     "leftLabel": "Dissimilar",
                     "rightLabel": "The same",
-                    "numItems": 5
+                    "numItems": 5,
+                    "withDivider": true
                 },
                 {
-                    "id": "p29-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
+                    "id": "p29-agree",
+                    "prompt": "For each step, check the box with each statement you agree with",
                     "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p29-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
+                    "type": "matrix-checkbox",
+                    "answerOptions": [
+                    "This step is necessary",
+                    "This step is correct",
+                    "I need a visual aid",
+                    "The language used is too short",
+                    "The language used is too long"
+                    ],
+                    "questionOptions": [
+                      "Step 1",
+                      "Step 2",
+                      "Step 3",
+                      "Step 4",
+                      "Step 5",
+                      "Step 6",
+                      "Step 7",
+                      "Step 8",
+                      "Step 9"
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p29-change-yn",
@@ -3396,7 +1227,8 @@
                     "Yes",
                     "No",
                     "Cannot say"
-                    ]
+                    ],
+                    "withDivider": true
                 },
                 {
                     "id": "p29-justify",
@@ -3407,121 +1239,9 @@
                 }
             ]
         },
-        "problem30-q": {
-           "type": "markdown",
-            "path": "stem-paths-student/assets/problem-prompts/problem30.rmd",
-            "recordAudio": true,
-            "response": []
-        },
-        "problem30-solve-eval": {
-            "type": "questionnaire",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p30-complete",
-                    "prompt": "How complete did you solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all complete",
-                    "rightLabel": "Completely solved",
-                    "numItems": 5
-                },
-                {
-                    "id": "p30-confident",
-                    "prompt": "How confident are you with your approach to solve the problem?",
-                    "required": true,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not at all confident",
-                    "rightLabel": "Completely confident",
-                    "numItems": 5
-                }
-            ]
-        },
-        "problem30-output-eval": {
-            "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem30-screenshot.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "recordAudio": true,
-            "response": [
-                {
-                    "id": "p30-approach-yn",
-                    "prompt": "Is the above approach correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p30-solution-yn",
-                    "prompt": "Is the above solution correct?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p30-similar",
-                    "prompt": "How close is the provided approach similar to your approach to solving?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Dissimilar",
-                    "rightLabel": "The same",
-                    "numItems": 5
-                },
-                {
-                    "id": "p30-length",
-                    "prompt": "Rate the problem explanation based on LENGTH:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very short",
-                    "rightLabel": "Very long",
-                    "numItems": 5
-                },
-                {
-                    "id": "p30-quality",
-                    "prompt": "Rate the problem explanation based on QUALITY:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very poor",
-                    "rightLabel": "Excellent",
-                    "numItems": 5
-                },
-                {
-                    "id": "p30-change-yn",
-                    "prompt": "Would you like to change your approach to solving to the provided approach?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Yes",
-                    "No",
-                    "Cannot say"
-                    ]
-                },
-                {
-                    "id": "p30-justify",
-                    "prompt": "Please provide justification for your above responses:",
-                    "location": "belowStimulus",
-                    "type": "longText",
-                    "placeholder": ""
-                }
-            ]
-        },
         "subjective_numeracy_scale": {
             "type": "questionnaire",
+            "recordAudio": false,
             "response": [
                 {
                     "id": "p1-sns",
@@ -3531,7 +1251,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all good",
                     "rightLabel": "Extremely good",
-                    "numItems": 6
+                    "numItems": 6,
+                    "withDivider": true
                 },
                 {
                     "id": "p2-sns",
@@ -3541,7 +1262,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all good",
                     "rightLabel": "Extremely good",
-                    "numItems": 6
+                    "numItems": 6,
+                    "withDivider": true
                 },
                 {
                     "id": "p3-sns",
@@ -3551,7 +1273,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all good",
                     "rightLabel": "Extremely good",
-                    "numItems": 6
+                    "numItems": 6,
+                    "withDivider": true
                 },
                 {
                     "id": "p4-sns",
@@ -3561,7 +1284,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all good",
                     "rightLabel": "Extremely good",
-                    "numItems": 6
+                    "numItems": 6,
+                    "withDivider": true
                 },
                 {
                     "id": "p5-sns",
@@ -3571,7 +1295,8 @@
                     "type": "likert",
                     "leftLabel": "Not at all",
                     "rightLabel": "Extremely",
-                    "numItems": 6
+                    "numItems": 6,
+                    "withDivider": true
                 },
                 {
                     "id": "p6-sns",
@@ -3581,7 +1306,8 @@
                     "type": "likert",
                     "leftLabel": "Always prefer words",
                     "rightLabel": "Always prefer numbers",
-                    "numItems": 6
+                    "numItems": 6,
+                    "withDivider": true
                 },
                 {
                     "id": "p7-sns",
@@ -3591,7 +1317,8 @@
                     "type": "likert",
                     "leftLabel": "Always prefer percentages",
                     "rightLabel": "Always prefer words",
-                    "numItems": 6
+                    "numItems": 6,
+                    "withDivider": true
                 },
                 {
                     "id": "p8-sns",
@@ -3605,86 +1332,7 @@
                 }
 
             ]
-        },
-        "short_graph_literacy_scale_1": {
-            "type": "image",
-            "path": "stem-paths-student/assets/sgl_scales/sgl_1.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "response": [
-                {
-                    "id": "p1-sgl",
-                    "prompt": "Approximately what percentage of people who die from cancer die from colon cancer, breast cancer, and prostate cancer taken together?",
-                    "location": "belowStimulus",
-                    "type": "shortText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "short_graph_literacy_scale_2": {
-            "type": "image",
-            "path": "stem-paths-student/assets/sgl_scales/sgl_2.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "response": [
-                {
-                    "id": "p2-sgl",
-                    "prompt": "How many more men than women are there among 100 patients with disease X?",
-                    "location": "belowStimulus",
-                    "type": "shortText",
-                    "placeholder": ""
-                }
-            ]
-        },
-        "short_graph_literacy_scale_3": {
-            "type": "image",
-            "path": "stem-paths-student/assets/sgl_scales/sgl_3.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "response": [
-                {
-                    "id": "p3-sgl",
-                    "prompt": "Compared to the placebo, which treatment leads to a larger decrease in the percentage of patients who die?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Crosicol",
-                    "Hertinol",
-                    "They are equal",
-                    "Can't say"
-                    ]
-                }
-            ]
-        },
-        "short_graph_literacy_scale_4": {
-            "type": "image",
-            "path": "stem-paths-student/assets/sgl_scales/sgl_4.png",
-            "style": {
-                "width": "1000px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "response": [
-                {
-                    "id": "p4-sgl",
-                    "prompt": "Which of the treatments contributes to a larger decrease in the percentage of sick patients?",
-                    "location": "belowStimulus",
-                    "type": "radio",
-                    "options": [
-                    "Apsoriatin",
-                    "Nopsorian",
-                    "They are equal",
-                    "Can't say"
-                    ]
-                }
-            ]
         }
- 
     },
 
     "sequence": {
@@ -3702,7 +1350,9 @@
                 }],
                 "order": "fixed"
             },
-            "pid",
+            "tutorial",
+            "tutorial-good",
+            "tutorial-bad",
             {
                 "components": [
                     {
@@ -3725,65 +1375,9 @@
                         },
                         {
                             "components": [
-                                "problem3-q",
-                                "problem3-solve-eval",
-                                "problem3-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem4-q",
-                                "problem4-solve-eval",
-                                "problem4-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem5-q",
-                                "problem5-solve-eval",
-                                "problem5-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem6-q",
-                                "problem6-solve-eval",
-                                "problem6-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
                                 "problem7-q",
                                 "problem7-solve-eval",
                                 "problem7-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem8-q",
-                                "problem8-solve-eval",
-                                "problem8-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem9-q",
-                                "problem9-solve-eval",
-                                "problem9-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem10-q",
-                                "problem10-solve-eval",
-                                "problem10-output-eval"
                             ],
                             "order": "fixed"
                         }
@@ -3795,14 +1389,6 @@
                         "components": [
                         {
                             "components": [
-                                "problem11-q",
-                                "problem11-solve-eval",
-                                "problem11-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
                                 "problem12-q",
                                 "problem12-solve-eval",
                                 "problem12-output-eval"
@@ -3811,57 +1397,9 @@
                         },
                         {
                             "components": [
-                                "problem13-q",
-                                "problem13-solve-eval",
-                                "problem13-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
                                 "problem14-q",
                                 "problem14-solve-eval",
                                 "problem14-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem15-q",
-                                "problem15-solve-eval",
-                                "problem15-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem16-q",
-                                "problem16-solve-eval",
-                                "problem16-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem17-q",
-                                "problem17-solve-eval",
-                                "problem17-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem18-q",
-                                "problem18-solve-eval",
-                                "problem18-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem19-q",
-                                "problem19-solve-eval",
-                                "problem19-output-eval"
                             ],
                             "order": "fixed"
                         },
@@ -3881,41 +1419,9 @@
                         "components": [
                         {
                             "components": [
-                                "problem21-q",
-                                "problem21-solve-eval",
-                                "problem21-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem22-q",
-                                "problem22-solve-eval",
-                                "problem22-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem23-q",
-                                "problem23-solve-eval",
-                                "problem23-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
                                 "problem24-q",
                                 "problem24-solve-eval",
                                 "problem24-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem25-q",
-                                "problem25-solve-eval",
-                                "problem25-output-eval"
                             ],
                             "order": "fixed"
                         },
@@ -3929,33 +1435,9 @@
                         },
                         {
                             "components": [
-                                "problem27-q",
-                                "problem27-solve-eval",
-                                "problem27-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem28-q",
-                                "problem28-solve-eval",
-                                "problem28-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
                                 "problem29-q",
                                 "problem29-solve-eval",
                                 "problem29-output-eval"
-                            ],
-                            "order": "fixed"
-                        },
-                        {
-                            "components": [
-                                "problem30-q",
-                                "problem30-solve-eval",
-                                "problem30-output-eval"
                             ],
                             "order": "fixed"
                         }
@@ -3975,12 +1457,7 @@
             },
 
             "subjective_numeracy_scale",
-            "short_graph_literacy_scale_1",
-            "short_graph_literacy_scale_2",
-            "short_graph_literacy_scale_3",
-            "short_graph_literacy_scale_4",
-            "demographics",
-            "rand-code-ec"
+            "demographics"
         ],
         "order": "fixed"
     }

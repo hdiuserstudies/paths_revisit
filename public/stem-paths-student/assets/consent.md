@@ -7,20 +7,20 @@
 ## Title of Project: STEM Paths with Generative AI
 ## Request to Participant in Reserch
 We/I would like to invite you to participate in a web-based study. 
-The study is part of a research study whose purpose is to evaluate the difficulty of probability and combination math problems.  
+The study is part of a research study whose purpose is to solve and evaluate probability and combinatoric math problems.  
 
 ## Key Information
 - Your consent is being sought for participation in a research project and your participation is voluntary. 
-- The purpose of the research is to evaluate the difficulty of math problems to help develop an interactive large language model (LLM)-based system and you are being asked to take part because you are a current faculty member teaching a math course. 
-- The anticipated amount of time that your participation will take will be 60 minutes 
-- The procedures that you will be asked to complete will be determining the difficulty of math problems based on the language and answering a brief demographic survey. 
+- The purpose of the research is to evaluate the difficulty of math problems to help develop an interactive large language model (LLM)-based system and you are being asked to take part because you are a current student. 
+- The anticipated amount of time that your participation will take will be 45 minutes.
+- The procedures that you will be asked to complete will be solving and evaluating math problems based on the language and answering a brief questionnaire. 
 - The reasonably foreseeable risks and discomforts to you in this study are minimal. 
 - There are no direct benefits to you from participation. 
-- As compensation for your participation, you may receive extra credit as subject to the course and university policy, not to exceed 1% of the total grade. 
+- As compensation for your participation, you will be compensated $12 USD/hour.
 
-This is a web-based study and should take about 60 minutes to complete.
+This is a web-based study and should take about 45 minutes to complete.
 
-We/I are asking you to participate in this study because you are a current faculty member that is teaching a math course. 
+We/I are asking you to participate in this study because you are a current student. 
 **You must be at least 18 years old to take this survey.**
 
 **The decision to participate in this research project is voluntary.** 
@@ -30,9 +30,9 @@ Even if you begin the web-based online survey, you can stop at any time.
 **The possible risks or discomforts of the study are minimal.**
 
 **There are no direct benefits to you from participating in this study.**
-However, your responses may help us learn more about how undergraduate students rate the difficulty of probability and combinations math problems. 
+However, your responses may help us learn more about how undergraduate students solve and evaluate probability and combinatoric math problems. 
 
-**You will not be paid for your participation in this study, but you may receive extra credit as subject to the course and university policy, not to exceed 1% of the total grade.**
+**You will be compensated $12 USD/hour for your participation.**
 
 **Your part in this study will be handled in a confidential manner.**  
 **Any reports or publications based on this research will use only group data and will not identify you or any individual as being affiliated with this project.**

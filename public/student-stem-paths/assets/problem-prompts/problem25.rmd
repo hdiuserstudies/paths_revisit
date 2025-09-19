@@ -1,0 +1,3 @@
+### Please think-aloud as you solve the following math problem
+
+Consider the set of all positive integers less than or equal to 360 that are divisible by both 6 and 8. From this set, a number is chosen at random. What is the probability that the chosen number is a perfect square? Express your answer as a reduced fraction.
