@@ -58,18 +58,18 @@
             "response": []
         },
       "tutorial-good": {
-        "type": "video",
-        "path":"stem-paths-student/assets/video-tutorial/thinkaloud-good.mp4",
-        "recordAudio": false,
-        "forceCompletion": true,
-        "response": []
+            "type": "video",
+            "path":"stem-paths-student/assets/video-tutorial/thinkaloud-good.mp4",
+            "recordAudio": false,
+            "forceCompletion": true,
+            "response": []
         },
         "tutorial-bad": {
-        "type": "video",
-        "path":"stem-paths-student/assets/video-tutorial/thinkaloud-bad.mp4",
-        "recordAudio": false,
-        "forceCompletion": true,
-        "response": []
+            "type": "video",
+            "path":"stem-paths-student/assets/video-tutorial/thinkaloud-bad.mp4",
+            "recordAudio": false,
+            "forceCompletion": true,
+            "response": []
         },
       "attention-check": {
             "type": "markdown",
@@ -91,6 +91,7 @@
         },
       "demographics": {
             "type": "questionnaire",
+            "recordAudio": false,
             "response": [
                 {
                     "id": "demo-age",
