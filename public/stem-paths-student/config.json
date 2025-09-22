@@ -91,6 +91,7 @@
         },
       "demographics": {
             "type": "questionnaire",
+            "recordAudio": false,
             "response": [
                 {
                     "id": "demo-age",
@@ -1026,7 +1027,7 @@
         },
         "problem26-output-eval": {
             "type": "image",
-            "path": "stem-paths-student/assets/step-screenshots/problem1-screenshot.png",
+            "path": "stem-paths-student/assets/step-screenshots/problem26-screenshot.png",
             "style": {
                 "width": "1000px",
                 "marginBottom": "20px"
